@@ -130,9 +130,8 @@ def main():
 
     # File upload section
     st.sidebar.header("Upload CSV File")
-    st.sidebar.subheader(
-        "CSV must have UTF-8 encoding so that streamlit can read it.\r" +
-        " Open in Notebook > Save As > Encoding drop down > UTF-8")
+    st.sidebar.subheader("CSV must have UTF-8 encoding so that streamlit can read it.")
+    st.sidebar.subheader("Open in Notebook > Save As > Encoding drop down > UTF-8")
     uploaded_file = st.sidebar.file_uploader("Choose a CSV file", type=["csv"])
 
     if uploaded_file is not None:
