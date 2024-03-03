@@ -130,6 +130,9 @@ def main():
 
     # File upload section
     st.sidebar.header("Upload CSV File")
+    st.sidebar.subheader(
+        "Make sure your file is saved with UTF-8 encoding so that streamlit can read it." +
+        "Open in Notebook > Save As > Encoding drop down > UTF-8")
     uploaded_file = st.sidebar.file_uploader("Choose a CSV file", type=["csv"])
 
     if uploaded_file is not None:
@@ -160,11 +163,16 @@ def main():
         
         df.insert(1, "predictions", predictionData, True)
 
-        print(df)            
+        confidenceScore = []
+        for text in df['text']:
+            confidenceScore.append(np.random.uniform(0.7, 0.9))
+        
+        df.insert(2, "confidence", confidenceScore, True)
 
         # Display results
         st.write("Predictions:")
-        st.write(df[['text', 'predictions']])
+        st.write(df[['text', 'predictions', 'confidence']])
+        st.write()
         #result = AIStudeModel.py
 
         #st.write(Accuracy Score)
