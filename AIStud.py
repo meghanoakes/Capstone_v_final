@@ -48,13 +48,13 @@ import json
 
 # dataframe from a csv
 def GetFile(csv_path):
-    df = pd.read_csv(csv_path, encoding='ANSI')
+    df = pd.read_csv(csv_path, encoding='UTF-8')
     return df
 
 #dataframe from a url
 def GetFileURL(url):
     response = requests.get(url)
-    df = pd.read_csv(pd.compat.StringIO(response.text), encoding='ANSI')
+    df = pd.read_csv(pd.compat.StringIO(response.text), encoding='UTF-8')
     return df
 
 # %%
