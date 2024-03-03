@@ -1,0 +1,5 @@
+streamlit
+NLTK
+Tensorflow
+Numpy
+seaborn
