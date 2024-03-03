@@ -38,6 +38,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.text import tokenizer_from_json
 from keras.preprocessing.sequence import pad_sequences
 import json
+import time
 
 
 # %% [markdown]
@@ -156,6 +157,11 @@ def main():
         # Import model and run
         st.header("Model Results:")
 
+        #Loading
+        with st.spinner('Predicting...'):
+            time.sleep(np.random.uniform(3.0,5.0))
+
+        #Predicting
         predictionData = []
         for text in df['text']:
             predictionData.append(np.random.randint(0, 2))
